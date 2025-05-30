@@ -4,6 +4,9 @@
 
 This project demonstrates a functional Proof-of-Concept for Reflective DLL Injection (RDI) on Windows ARM64. Key to this is leveraging the `x18` register to access the Thread Environment Block (TEB) and subsequently the Process Environment Block (PEB), a method confirmed via WinDbg and Microsoft's ARM64 ABI documentation. The PoC, developed and tested on a Surface Pro 11 (ARM64), includes a basic injector and a reflective DLL, adapting Stephen Fewer's original RDI principles to the ARM64 architecture. This work aims to fill a gap in publicly available research for this specific technique on ARM64.
 
+![image](https://github.com/user-attachments/assets/6cedde0f-8092-4031-bf00-020b688f4d74)
+
+
 ## Abstract
 
 Reflective DLL Injection (RDI) is a well-documented technique for loading Dynamic Link Libraries (DLLs) into a process's memory from a memory buffer, bypassing conventional disk-based loading mechanisms. While extensively analyzed and utilized on x86 and x64 Windows architectures, its application and detailed public documentation for the Windows on ARM64 platform have been notably limited, with very little readily accessible research specifically addressing RDI on this architecture. This article details the process of adapting and implementing RDI for ARM64, focusing on the architectural nuances required for self-location and API resolution by the reflective loader. We present key findings from Windows Debugger (WinDbg) analysis regarding ARM64's Thread Environment Block (TEB) and Process Environment Block (PEB) access, and demonstrate a functional proof-of-concept. The implications for offensive security practitioners and defensive strategies on the ARM64 platform are also discussed.
