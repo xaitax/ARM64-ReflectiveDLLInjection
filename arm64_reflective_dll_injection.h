@@ -1,0 +1,14 @@
+#ifndef ARM64_REFLECTIVE_DLL_INJECTION_H
+#define ARM64_REFLECTIVE_DLL_INJECTION_H
+
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+
+#define DLL_QUERY_HMODULE 6
+
+typedef ULONG_PTR(WINAPI *REFLECTIVELOADER_FN)(LPVOID);
+typedef BOOL(WINAPI *DLLMAIN_FN)(HINSTANCE, DWORD, LPVOID);
+
+#define DLLEXPORT __declspec(dllexport)
+
+#endif
